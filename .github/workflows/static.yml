@@ -37,4 +37,4 @@ jobs:
     env:
       SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
       SERVER_IP: ${{secrets.BNLSTR_SERVER_IP}}
-     CI: false
+      CI: false
