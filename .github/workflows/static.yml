@@ -34,7 +34,7 @@ jobs:
           ls -al ~/.ssh
           ls -al ~/.ssh/known_hosts
           scp -r * zork@$SERVER_IP:/var/www/html2
-      env:
-        SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
-        SERVER_IP: ${{secrets.BNLSTR_SERVER_IP}}
-        # CI: false
+    env:
+      SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
+      SERVER_IP: ${{secrets.BNLSTR_SERVER_IP}}
+      # CI: false
