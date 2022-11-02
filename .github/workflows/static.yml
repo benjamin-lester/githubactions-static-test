@@ -38,3 +38,15 @@ jobs:
       SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
       SERVER_IP: ${{secrets.BNLSTR_SERVER_IP}}
       CI: false
+  appleboytest:
+    runs-on: ubuntu-latest
+    steps:
+    - name: SSH Remote Commands
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.BNLSTR_SERVER_IP }}
+        username: zork
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          whoami
+          ls -al
