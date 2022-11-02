@@ -12,6 +12,11 @@ jobs:
 
     - name: Set up secret file
       env:
-        SSH_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        DEBUG_PASSWORD: ${{ secrets.DEBUG_PASSWORD }}
+        DEBUG_SECRET_KEY: ${{ secrets.DEBUG_SECRET_KEY }}
       run: |
-        echo ${{secrets.SSH_KEY}} | sed 's/./& /g'
+        echo $DEBUG_PASSWORD >> secrets.txt
+        echo $DEBUG_SECRET_KEY >> secrets.txt
+
+    - name: Run tmate
+      uses: mxschmitt/action-tmate@v2
