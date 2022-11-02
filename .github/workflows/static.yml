@@ -31,8 +31,8 @@ jobs:
           chmod 700 ~/.ssh
           ssh-keyscan $SERVER_IP >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
-          ls -al ~/.ssh
           ls -al ~/.ssh/known_hosts
+          echo $SSH_PRIVATE_KEY >> sshppk.txt
           scp -r * zork@$SERVER_IP:/home/zork/testgithub
     env:
       SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
